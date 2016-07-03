@@ -7,8 +7,8 @@ app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
   spark.messages.create({
-    roomId: req.body.roomId,
-    markdown: req.body.text
+    roomId: req.body.data.roomId,
+    markdown: req.body.data.text
   });
   req.send(204);
 });
