@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
   console.log("New message:", util.inspect(req.body.data));
-  spark.messages.get(req.body.data).then(function(message) {
+  spark.messages.get(req.body.data.id).then(function(message) {
     if(message.markdown == null) {
       spark.messages.create({
         roomId: message.roomId,
