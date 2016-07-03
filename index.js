@@ -14,7 +14,7 @@ app.post('/', function (req, res) {
     if(message.markdown == null && message.text.indexOf(ACTIVATION_CHAR) == 0) {
       spark.messages.create({
         roomId: message.roomId,
-        markdown: message.text
+        markdown: message.text.substr(ACTIVATION_CHAR.length).trim()
       });
     }
     res.send(204);
