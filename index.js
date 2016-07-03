@@ -10,7 +10,7 @@ app.post('/', function (req, res) {
     roomId: req.body.data.roomId,
     markdown: req.body.data.text
   });
-  req.send(204);
+  res.send(204);
 });
 
 app.listen(process.env.PORT || 3000, function () {
