@@ -1,6 +1,9 @@
 var spark = require('ciscospark');
 var express = require('express');
+var bodyParser = require('body-parser')
+
 var app = express();
+app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
   spark.messages.create({
@@ -10,6 +13,6 @@ app.post('/', function (req, res) {
   req.send(204);
 });
 
-app.listen(3000 || process.env.PORT, function () {
-  console.log('Listening on port 3000!');
+app.listen(process.env.PORT || 3000, function () {
+  console.log('Listening on port', process.env.PORT || 3000);
 });

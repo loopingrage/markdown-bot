@@ -10,7 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "ciscospark": "*",
-    "express": "*"
+    "express": "*",
+    "body-parser": "*"
   }
 
 }
