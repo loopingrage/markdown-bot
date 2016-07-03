@@ -17,7 +17,7 @@ app.post('/', function (req, res) {
         roomId: message.roomId,
         markdown: message.text.substr(ACTIVATION_CHAR.length).trim()
       }).then(function() {
-        spark.messages.delete(originalMessageId);
+        spark.messages.remove(originalMessageId);
       });
     }
     res.send(204);
