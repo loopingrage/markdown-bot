@@ -10,6 +10,6 @@ app.post('/', function (req, res) {
   req.send(204);
 });
 
-app.listen(3000 || env.PORT, function () {
+app.listen(3000 || process.env.PORT, function () {
   console.log('Listening on port 3000!');
 });
