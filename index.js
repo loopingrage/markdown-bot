@@ -41,7 +41,7 @@ app.listen(process.env.PORT || 3000, function () {
   console.log('Listening on port', process.env.PORT || 3000);
 });
 
-function shouldProcessMessage() {
+function shouldProcessMessage(message) {
   return message.markdown == null
     && message.text.indexOf(ACTIVATION_CHAR) == 0
     && message.personId == myPersonId;
