@@ -24,13 +24,13 @@ app.post('/', function (req, res) {
   var originalMessageId = req.body.data.id;
   spark.messages.get(originalMessageId).then(function(message) {
     if(shouldProcessMessage(message)) {
-      return spark.messages.create({
+      spark.messages.create({
         roomId: message.roomId,
         markdown: message.text.substr(ACTIVATION_CHAR.length).trim()
+      }).then(function() {
+        spark.messages.remove(originalMessageId);
       });
     }
-  }).then(function() {
-    spark.messages.remove(originalMessageId);
   }).catch(function(err) {
     console.error('Error getting message text');
   });
